@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ShopnSaveAdmin</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_category">Category</string>
+    <string name="nav_prod_cat">Product Category</string>
+    <string name="nav_product">Product</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

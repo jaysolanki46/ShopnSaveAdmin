@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/nav_category"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_category" />
+    <item
+        android:id="@+id/nav_product_category"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_prod_cat" />
+    <item
+        android:id="@+id/nav_product"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_product" />
+</menu>
