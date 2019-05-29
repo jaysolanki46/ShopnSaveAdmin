@@ -1,5 +1,6 @@
 package com.example.jayso.shopnsaveadmin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -53,6 +54,10 @@ public class HomeActivity extends AppCompatActivity {
                         setFragment(productFragment);
                         return true;
 
+                    case R.id.nav_logout :
+                        redirectLogIn();
+                        return true;
+
                         default:
                             return  false;
                 }
@@ -65,5 +70,10 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.main_frame,  fragment);
         transaction.commit();
+    }
+
+    public void redirectLogIn() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

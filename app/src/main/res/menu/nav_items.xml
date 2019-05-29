@@ -5,18 +5,22 @@
 
     <item
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/baseline_home_black_18dp"
         android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_category"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/baseline_category_black_18dp"
         android:title="@string/nav_category" />
     <item
         android:id="@+id/nav_product_category"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/baseline_dns_black_18dp"
         android:title="@string/nav_prod_cat" />
     <item
         android:id="@+id/nav_product"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/baseline_receipt_black_18dp"
         android:title="@string/nav_product" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/baseline_input_black_18dp"
+        android:title="Logout" />
 </menu>
