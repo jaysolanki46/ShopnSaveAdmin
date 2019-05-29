@@ -6,9 +6,62 @@
     tools:context=".ProductCategoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearlayout_product_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="this is prod category" />
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/shapebackgroundpage">
 
+        <TextView
+            android:id="@+id/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="Product Category"
+            android:textSize="40sp"
+            android:textStyle="bold|normal"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="Arial"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_categories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shapefield"
+            android:drawablePadding="10dp"
+            android:hint="Product category name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark">
+
+        </Spinner>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shapefield"
+            android:drawablePadding="10dp"
+            android:hint="Product category name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textStyle="bold|normal"
+            android:textColor="@color/colorAccent"
+            android:padding="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shapelogin"
+            />
+    </LinearLayout>
 </FrameLayout>
