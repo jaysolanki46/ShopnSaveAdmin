@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryFragment">
+    tools:context=".CategoryFragment"
+    android:id="@+id/id_category_fragment">
+
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -17,7 +19,7 @@
             android:id="@+id/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:text="Category"
             android:textSize="40sp"
             android:textStyle="bold|normal"
@@ -25,7 +27,16 @@
             android:fontFamily="Arial"
             />
 
+        <ImageView
+            android:id="@+id/id_category_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_upload"/>
+
         <EditText
+            android:id="@+id/id_category_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -38,6 +49,7 @@
             android:textColorHighlight="@color/coloreditbox"/>
 
         <Button
+            android:id="@+id/id_btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add"
@@ -45,8 +57,7 @@
             android:textColor="@color/colorfont"
             android:padding="15dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/shapelogin"
-            />
+            android:background="@drawable/shapelogin" />
     </LinearLayout>
 
 

@@ -15,8 +15,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.Category;
+import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.ConnectionClass;
 import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.ProductCategory;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,12 +31,68 @@ public class ProductFragment extends Fragment {
 
     Spinner spinnerCategory;
     Spinner spinnerProductCategory;
+    List<Category> categories = null;
+    List<ProductCategory> productCategories = null;
+
+    String tbl_category_id = null;
+    String tbl_prod_cat_id = null;
+    String tbl_prod_name = null;
+    String tbl_prod_store_counter = null;
+    String tbl_prod_image = null;
+    String tbl_pak_n_save_price = null;
+    String tbl_coundown_price = null;
+    String new_world_price = null;
 
 
     public ProductFragment() {
         // Required empty public constructor
     }
 
+    public List<Category> getCategories() {
+        ConnectionClass conn = new ConnectionClass();
+        Statement stmt = conn.getConnection();
+        ResultSet result = null;
+        categories = new ArrayList<>();
+        try {
+            result = stmt.executeQuery("select * from Categories");
+            while(result.next()){
+
+                categories.add(new Category(
+                        result.getString("cat_id"),
+                        result.getString("cat_name"), 0));
+            }
+            conn.connectionClose();
+
+
+        } catch (Exception e) {
+
+        }
+
+        return categories;
+    }
+
+    public List<ProductCategory> getProductCategories(String cat_id) {
+        ConnectionClass conn = new ConnectionClass();
+        Statement stmt = conn.getConnection();
+        ResultSet result = null;
+        productCategories = new ArrayList<>();
+        try {
+            result = stmt.executeQuery("select * from Product_categories where cat_id ="+ cat_id +"");
+            while(result.next()){
+
+                productCategories.
+                        add(new ProductCategory(
+                                result.getString("prod_cat_id"),
+                                result.getString("cat_id"),
+                                result.getString("prod_cat_name"),
+                                0));
+            }
+            conn.connectionClose();
+        } catch (Exception e) {
+
+        }
+        return productCategories;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,17 +100,8 @@ public class ProductFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_product, container, false);
 
-        // Grap category from database
-        List<Category> categories = new ArrayList<>();
-        categories.add(new Category(1, "Category 1"));
-        categories.add(new Category(2, "Category 2"));
-        categories.add(new Category(3, "Category 3"));
-
-        // Need update as per category
-        List<ProductCategory> productCategories = new ArrayList<>();
-        productCategories.add(new ProductCategory(1, 2,"Product Category 1"));
-        productCategories.add(new ProductCategory(2, 1, "Product Category 2"));
-        productCategories.add(new ProductCategory(3, 2,"Product Category 3"));
+        // Listing categories
+        categories = getCategories();
 
         // Category spinner
         spinnerCategory = (Spinner) view.findViewById(R.id.spinner_categories);
@@ -64,7 +114,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Category category = (Category) parent.getSelectedItem();
-                updateProductCategorySnipper(category);
+                tbl_category_id = category.getCategory_id();
+                populateProductCategories(category);
             }
 
             @Override
@@ -73,13 +124,18 @@ public class ProductFragment extends Fragment {
             }
         });
 
-        // Product Category spinner
-        spinnerProductCategory = (Spinner) view.findViewById(R.id.spinner_product_categories);
-        ArrayAdapter< ProductCategory > productCategoryArrayAdapter =
-                new ArrayAdapter < ProductCategory > (getActivity(), android.R.layout.simple_spinner_item, productCategories);
-        productCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerProductCategory.setAdapter(productCategoryArrayAdapter);
+        spinnerProductCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ProductCategory productCategory = (ProductCategory) parent.getSelectedItem();
+                tbl_prod_cat_id = productCategory.getProd_cat_id();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
         CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
@@ -120,23 +176,18 @@ public class ProductFragment extends Fragment {
             }
         });
 
+
+        // make btn call listerner
         return view;
     }
 
-    public void getSelectedCategory(View view) {
-        Category category = (Category) spinnerCategory.getSelectedItem();
-    }
+    private void populateProductCategories(Category category) {
 
-    private void updateProductCategorySnipper(Category category) {
-        String name = category.getCat_name();
-        Toast.makeText(getActivity(), name, Toast.LENGTH_LONG).show();
-
-        // Code for update product category snipper
-        // Product Category spinner
-//        spinner = (Spinner) view.findViewById(R.id.spinner_product_categories);
-//        ArrayAdapter< ProductCategory > productCategoryArrayAdapter =
-//                new ArrayAdapter < ProductCategory > (getActivity(), android.R.layout.simple_spinner_item, productCategories);
-//        productCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(productCategoryArrayAdapter);
+        productCategories = getProductCategories(category.getCategory_id());
+        spinnerProductCategory = (Spinner) getActivity().findViewById(R.id.spinner_product_categories);
+        ArrayAdapter< ProductCategory > productCategoryArrayAdapter =
+                new ArrayAdapter < ProductCategory > (getActivity(), android.R.layout.simple_spinner_item, productCategories);
+        productCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerProductCategory.setAdapter(productCategoryArrayAdapter);
     }
 }
