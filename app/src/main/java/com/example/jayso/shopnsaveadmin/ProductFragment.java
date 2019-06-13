@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -37,11 +38,11 @@ public class ProductFragment extends Fragment {
     String tbl_category_id = null;
     String tbl_prod_cat_id = null;
     String tbl_prod_name = null;
-    String tbl_prod_store_counter = null;
+    Integer tbl_prod_store_counter = 0;
     String tbl_prod_image = null;
     String tbl_pak_n_save_price = null;
     String tbl_coundown_price = null;
-    String new_world_price = null;
+    String tbl_new_world_price = null;
 
 
     public ProductFragment() {
@@ -62,12 +63,9 @@ public class ProductFragment extends Fragment {
                         result.getString("cat_name"), 0));
             }
             conn.connectionClose();
-
-
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
-
         return categories;
     }
 
@@ -77,7 +75,12 @@ public class ProductFragment extends Fragment {
         ResultSet result = null;
         productCategories = new ArrayList<>();
         try {
-            result = stmt.executeQuery("select * from Product_categories where cat_id ="+ cat_id +"");
+            if(cat_id == "all") {
+                result = stmt.executeQuery("select * from Product_categories");
+            } else {
+                result = stmt.executeQuery("select * from Product_categories where cat_id ="+ cat_id +"");
+            }
+
             while(result.next()){
 
                 productCategories.
@@ -89,7 +92,7 @@ public class ProductFragment extends Fragment {
             }
             conn.connectionClose();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return productCategories;
     }
@@ -97,45 +100,50 @@ public class ProductFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_product, container, false);
 
         // Listing categories
         categories = getCategories();
 
-        // Category spinner
-        spinnerCategory = (Spinner) view.findViewById(R.id.spinner_categories);
-        ArrayAdapter< Category > categoryArrayAdapter =
-                new ArrayAdapter < Category > (getActivity(), android.R.layout.simple_spinner_item, categories);
-        categoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategory.setAdapter(categoryArrayAdapter);
+             // Category spinner
+            spinnerCategory = (Spinner) view.findViewById(R.id.spinner_categories);
+            spinnerProductCategory = (Spinner) view.findViewById(R.id.spinner_product_categories);
+            ArrayAdapter< Category > categoryArrayAdapter =
+                    new ArrayAdapter < Category > (getActivity(), android.R.layout.simple_spinner_item, categories);
+            categoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerCategory.setAdapter(categoryArrayAdapter);
 
-        spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Category category = (Category) parent.getSelectedItem();
-                tbl_category_id = category.getCategory_id();
-                populateProductCategories(category);
-            }
+            spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Category category = (Category) parent.getSelectedItem();
+                    tbl_category_id = category.getCategory_id();
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                    productCategories = getProductCategories(tbl_category_id);
+                    ArrayAdapter< ProductCategory > productCategoryArrayAdapter =
+                            new ArrayAdapter < ProductCategory > (getActivity(), android.R.layout.simple_spinner_item, productCategories);
+                    productCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerProductCategory.setAdapter(productCategoryArrayAdapter);
+                }
 
-            }
-        });
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-        spinnerProductCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ProductCategory productCategory = (ProductCategory) parent.getSelectedItem();
-                tbl_prod_cat_id = productCategory.getProd_cat_id();
-            }
+                }
+            });
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                spinnerProductCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        ProductCategory productCategory = (ProductCategory) parent.getSelectedItem();
+                        tbl_prod_cat_id = productCategory.getProd_cat_id();
+                    }
 
-            }
-        });
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
 
         CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
         CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
@@ -149,8 +157,10 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_paknsave.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_paknsave.setVisibility(view.INVISIBLE);
                 }
             }
@@ -159,8 +169,10 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_coundown.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_coundown.setVisibility(view.INVISIBLE);
                 }
             }
@@ -169,25 +181,77 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_newworld.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_newworld.setVisibility(view.INVISIBLE);
                 }
             }
         });
 
 
-        // make btn call listerner
+
+        tbl_prod_image = "";
+
+
+
+        Button btnAdd = (Button) view.findViewById(R.id.id_btn_add);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                EditText prod_name= (EditText) getActivity().findViewById(R.id.edittext_product_name);
+                EditText pak_n_save_price = (EditText) getActivity().findViewById(R.id.edittext_pak_n_save);
+                EditText coundown_price= (EditText) getActivity().findViewById(R.id.edittext_coundown);
+                EditText new_world_price= (EditText) getActivity().findViewById(R.id.edittext_new_world);
+
+                tbl_prod_name = prod_name.getText().toString();
+                tbl_pak_n_save_price = pak_n_save_price.getText().toString();
+                tbl_coundown_price = coundown_price.getText().toString();
+                tbl_new_world_price = new_world_price.getText().toString();
+
+                addProduct(tbl_category_id, tbl_prod_cat_id, tbl_prod_name, tbl_prod_store_counter, tbl_prod_image);
+                addProductPrice(tbl_pak_n_save_price, tbl_coundown_price, tbl_new_world_price);
+                Toast.makeText(getContext(), "Product added", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
 
-    private void populateProductCategories(Category category) {
+    public void addProduct(String tbl_category_id, String tbl_prod_cat_id, String tbl_prod_name, Integer tbl_prod_store_counter, String tbl_prod_image) {
 
-        productCategories = getProductCategories(category.getCategory_id());
-        spinnerProductCategory = (Spinner) getActivity().findViewById(R.id.spinner_product_categories);
-        ArrayAdapter< ProductCategory > productCategoryArrayAdapter =
-                new ArrayAdapter < ProductCategory > (getActivity(), android.R.layout.simple_spinner_item, productCategories);
-        productCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerProductCategory.setAdapter(productCategoryArrayAdapter);
+        ConnectionClass conn = new ConnectionClass();
+        Statement stmt = conn.getConnection();
+        ResultSet result = null;
+        categories = new ArrayList<>();
+        try {
+            result = stmt.executeQuery("Insert into Products values ('"+ tbl_category_id +"', '"+ tbl_prod_cat_id +"', '"+ tbl_prod_name +"', '"+ tbl_prod_store_counter +"', '"+ tbl_prod_image +"')");
+            conn.connectionClose();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void addProductPrice(String tbl_pak_n_save_price, String tbl_coundown_price, String tbl_new_world_price) {
+
+        ConnectionClass conn = new ConnectionClass();
+        Statement stmt = conn.getConnection();
+        ResultSet result = null;
+        categories = new ArrayList<>();
+        String tbl_prod_id = null;
+        try {
+            result = stmt.executeQuery("SELECT TOP 1 * FROM Products ORDER BY prod_id DESC");
+            while(result.next()){
+                tbl_prod_id = result.getString("prod_id");
+            }
+
+            result = stmt.executeQuery("Insert into Product_prices values ('"+ tbl_prod_id +"', '"+ tbl_pak_n_save_price +"', '"+  tbl_coundown_price+"', '"+ tbl_new_world_price +"')");
+
+            conn.connectionClose();
+        } catch (Exception e) {
+
+        }
     }
 }

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +89,7 @@ public class CategoryFragment extends Fragment {
         try {
             result = stmt.executeQuery("Insert into Categories values ('"+ category_name +"', '"+ category_image_name +"');");
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 }

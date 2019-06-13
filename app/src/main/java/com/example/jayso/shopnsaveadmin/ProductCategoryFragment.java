@@ -51,12 +51,9 @@ public class ProductCategoryFragment extends Fragment {
                         result.getString("cat_name"), 0));
             }
             conn.connectionClose();
-
-
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
-
         return categories;
     }
 
