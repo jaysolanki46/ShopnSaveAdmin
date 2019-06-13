@@ -2,6 +2,7 @@ package com.example.jayso.shopnsaveadmin;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -39,12 +41,22 @@ public class CategoryFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void sessionCheck() {
+        SharedPreferences prefs = getContext().getSharedPreferences("preferences-details", MODE_PRIVATE);
+        String username = prefs.getString("username", "blank");
+        if(username.equals("blank")){
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View v =  inflater.inflate(R.layout.fragment_category, container, false);
+       sessionCheck();
+
        btnAdd = (Button) v.findViewById(R.id.id_btn_add);
        btnImage = (ImageView) v.findViewById(R.id.id_category_image);
 

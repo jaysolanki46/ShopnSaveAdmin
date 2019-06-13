@@ -167,7 +167,7 @@
             android:id="@+id/id_btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="Add Product"
             android:textStyle="bold|normal"
             android:textColor="@color/colorfont"
             android:padding="15dp"

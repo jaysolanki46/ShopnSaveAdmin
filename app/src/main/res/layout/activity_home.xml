@@ -139,6 +139,28 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="100dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_supervised_user_circle_black_18dp"
+                    android:layout_marginRight="5sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="User"
+                    android:textSize="16sp"
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </FrameLayout>

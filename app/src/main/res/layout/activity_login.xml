@@ -17,6 +17,7 @@
             android:src="@drawable/icon_admin" />
 
         <EditText
+            android:id="@+id/id_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -30,6 +31,7 @@
             android:textColorHighlight="@color/coloreditbox"/>
 
         <EditText
+            android:id="@+id/id_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -43,6 +45,7 @@
             android:textColorHighlight="@color/coloreditbox"/>
 
         <Button
+            android:id="@+id/id_btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log In"
@@ -54,7 +57,7 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/shapelogin"
-            android:onClick="getHome"/>
+            android:onClick="getLogin"/>
 
     </LinearLayout>
 </LinearLayout>

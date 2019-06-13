@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductCategoryFragment">
+    tools:context=".UserFragment"
+    android:id="@+id/id_category_fragment">
+
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:id="@+id/linearlayout_product_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
@@ -18,38 +19,49 @@
             android:id="@+id/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="Product Category"
+            android:layout_marginTop="40dp"
+            android:text="Category"
             android:textSize="40sp"
             android:textStyle="bold|normal"
             android:textColor="@color/colorheadertoolbaar"
             android:fontFamily="Arial"
             />
 
-        <Spinner
-            android:id="@+id/spinner_categories"
+        <EditText
+            android:id="@+id/id_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:layout_marginTop="10dp"
-            android:drawablePadding="10dp"
-            android:hint="category name"
             android:background="@drawable/shapefield"
+            android:drawablePadding="10dp"
+            android:hint="Username"
             android:textColor="@color/coloreditbox"
             android:textColorHint="@color/coloreditbox"
-            android:textColorHighlight="@color/coloreditbox">
-
-        </Spinner>
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <EditText
-            android:id="@+id/id_product_category_name"
+            android:id="@+id/id_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
-            android:hint="Product category name"
+            android:hint="Password"
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox"/>
+
+        <EditText
+            android:id="@+id/id_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shapefield"
+            android:drawablePadding="10dp"
+            android:hint="Email"
             android:textColor="@color/coloreditbox"
             android:textColorHint="@color/coloreditbox"
             android:textColorHighlight="@color/coloreditbox"/>
@@ -58,12 +70,14 @@
             android:id="@+id/id_btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Product Category"
+            android:text="Add User"
             android:textStyle="bold|normal"
             android:textColor="@color/colorfont"
             android:padding="15dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/shapelogin"
-            />
+            android:background="@drawable/shapelogin" />
     </LinearLayout>
+
+
+
 </FrameLayout>

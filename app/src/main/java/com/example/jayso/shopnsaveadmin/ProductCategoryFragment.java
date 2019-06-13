@@ -1,6 +1,8 @@
 package com.example.jayso.shopnsaveadmin;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,6 +24,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +39,15 @@ public class ProductCategoryFragment extends Fragment {
 
     public ProductCategoryFragment() {
         // Required empty public constructor
+    }
+
+    public void sessionCheck() {
+        SharedPreferences prefs = getContext().getSharedPreferences("preferences-details", MODE_PRIVATE);
+        String username = prefs.getString("username", "blank");
+        if(username.equals("blank")){
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     public List<Category> getCategories() {
@@ -62,6 +75,7 @@ public class ProductCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        sessionCheck();
         // List categories
         categories = getCategories();
 

@@ -1,6 +1,8 @@
 package com.example.jayso.shopnsaveadmin;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,6 +26,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +48,14 @@ public class ProductFragment extends Fragment {
     String tbl_coundown_price = null;
     String tbl_new_world_price = null;
 
+    public void sessionCheck() {
+        SharedPreferences prefs = getContext().getSharedPreferences("preferences-details", MODE_PRIVATE);
+        String username = prefs.getString("username", "blank");
+        if(username.equals("blank")){
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
+    }
 
     public ProductFragment() {
         // Required empty public constructor
@@ -100,6 +112,7 @@ public class ProductFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sessionCheck();
         final View view = inflater.inflate(R.layout.fragment_product, container, false);
 
         // Listing categories
