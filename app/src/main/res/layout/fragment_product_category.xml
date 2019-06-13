@@ -22,7 +22,7 @@
             android:text="Product Category"
             android:textSize="40sp"
             android:textStyle="bold|normal"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorheadertoolbaar"
             android:fontFamily="Arial"
             />
 
@@ -35,9 +35,9 @@
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
             android:hint="Product category name"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark">
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox">
 
         </Spinner>
 
@@ -49,16 +49,16 @@
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
             android:hint="Product category name"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add"
             android:textStyle="bold|normal"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorfont"
             android:padding="15dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/shapelogin"

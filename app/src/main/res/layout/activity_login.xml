@@ -1,39 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EEF2F5">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="500dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/HeaderText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/image_admin"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:text="Shop n' Save"
-            android:textSize="40sp"
-            android:textStyle="bold|normal"
-            android:textColor="@color/colorPrimaryDark"
-            android:fontFamily="Arial"
-            />
+            android:src="@drawable/icon_admin" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:padding="15dp"
             android:background="@drawable/shapefield"
             android:drawableLeft="@drawable/ic_person_black_24dp"
             android:drawablePadding="10dp"
-            android:hint="Email"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:hint="Username"
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/colorhint"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -44,9 +38,9 @@
             android:drawableLeft="@drawable/ic_lock_black_24dp"
             android:drawablePadding="10dp"
             android:hint="Password"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/colorhint"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <Button
             android:layout_width="match_parent"

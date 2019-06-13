@@ -22,7 +22,7 @@
             android:text="Product"
             android:textSize="40sp"
             android:textStyle="bold|normal"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorheadertoolbaar"
             android:fontFamily="Arial"
             />
 
@@ -35,9 +35,9 @@
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
             android:hint="Product category name"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <Spinner
             android:id="@+id/spinner_product_categories"
@@ -48,9 +48,9 @@
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
             android:hint="Product category name"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -60,9 +60,9 @@
             android:background="@drawable/shapefield"
             android:drawablePadding="10dp"
             android:hint="Product name"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorHighlight="@color/colorPrimaryDark"/>
+            android:textColor="@color/coloreditbox"
+            android:textColorHint="@color/coloreditbox"
+            android:textColorHighlight="@color/coloreditbox"/>
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -80,9 +80,9 @@
                 android:layout_height="wrap_content"
                 android:text="Pak n' Save"
                 android:textSize="15sp"
-                android:buttonTint="@color/colorPrimaryDark"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHighlight="@color/colorPrimaryDark"/>
+                android:textColor="@color/coloreditbox"
+                android:textColorHint="@color/coloreditbox"
+                android:textColorHighlight="@color/coloreditbox"/>
 
                 <EditText
                     android:id="@+id/edittext_pak_n_save"
@@ -94,9 +94,9 @@
                     android:background="@drawable/shapefield"
                     android:drawablePadding="10dp"
                     android:hint="Price"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -111,9 +111,9 @@
                     android:drawablePadding="10dp"
                     android:text="Coundown"
                     android:textSize="15sp"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
                 <EditText
                     android:id="@+id/edittext_coundown"
@@ -125,9 +125,9 @@
                     android:background="@drawable/shapefield"
                     android:drawablePadding="10dp"
                     android:hint="Price"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -142,9 +142,9 @@
                     android:drawablePadding="10dp"
                     android:text="New world"
                     android:textSize="15sp"
-                    android:buttonTint="@color/colorPrimaryDark"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
                 <EditText
                     android:id="@+id/edittext_new_world"
@@ -156,9 +156,9 @@
                     android:background="@drawable/shapefield"
                     android:drawablePadding="10dp"
                     android:hint="Price"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
             </RelativeLayout>
         </LinearLayout>
 
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:text="Add"
             android:textStyle="bold|normal"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorfont"
             android:padding="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shapelogin"

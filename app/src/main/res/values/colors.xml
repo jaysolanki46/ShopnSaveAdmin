@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#ffffff</color>
+
+    <color name="colorfont">#ffffff</color>
+    <color name="coloreditbox">#003153</color>
+    <color name="colorheadertoolbaar">#003153</color>
+    <color name="colorbutton">#003153</color>
+    <color name="colorhint">#003153</color>
 </resources>

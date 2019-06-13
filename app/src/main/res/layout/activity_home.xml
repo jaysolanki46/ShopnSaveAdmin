@@ -45,9 +45,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Home"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
             </LinearLayout>
 
@@ -67,9 +67,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Category"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
             </LinearLayout>
 
@@ -89,9 +89,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Product Category"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
             </LinearLayout>
 
@@ -111,9 +111,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Product"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
             </LinearLayout>
 
@@ -133,9 +133,9 @@
                     android:layout_height="wrap_content"
                     android:hint="Logout"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimaryDark"
-                    android:textColorHighlight="@color/colorPrimaryDark"/>
+                    android:textColor="@color/coloreditbox"
+                    android:textColorHint="@color/coloreditbox"
+                    android:textColorHighlight="@color/coloreditbox"/>
 
             </LinearLayout>
 
