@@ -38,6 +38,7 @@ public class ProductFragment extends Fragment {
     Spinner spinnerProductCategory;
     List<Category> categories = null;
     List<ProductCategory> productCategories = null;
+    Button btnShow = null;
 
     String tbl_category_id = null;
     String tbl_prod_cat_id = null;
@@ -99,6 +100,7 @@ public class ProductFragment extends Fragment {
                         add(new ProductCategory(
                                 result.getString("prod_cat_id"),
                                 result.getString("cat_id"),
+                                "",
                                 result.getString("prod_cat_name"),
                                 0));
             }
@@ -227,6 +229,16 @@ public class ProductFragment extends Fragment {
                 addProduct(tbl_category_id, tbl_prod_cat_id, tbl_prod_name, tbl_prod_store_counter, tbl_prod_image);
                 addProductPrice(tbl_pak_n_save_price, tbl_coundown_price, tbl_new_world_price);
                 Toast.makeText(getContext(), "Product added", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Show all
+        btnShow = (Button) view.findViewById(R.id.id_btn_show_all);
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AllProducts.class);
+                startActivity(intent);
             }
         });
 

@@ -36,6 +36,7 @@ public class ProductCategoryFragment extends Fragment {
     List<Category> categories = null;
     String category_id = null;
     Button btnAdd = null;
+    Button btnShow = null;
 
     public ProductCategoryFragment() {
         // Required empty public constructor
@@ -107,6 +108,16 @@ public class ProductCategoryFragment extends Fragment {
                 EditText editTextProductCategoryName = (EditText) getActivity().findViewById(R.id.id_product_category_name);
                 addProductCategory(category_id, editTextProductCategoryName.getText().toString(), "");
                 Toast.makeText(getContext(), "Product category added", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Show all
+        btnShow = (Button) view.findViewById(R.id.id_btn_show_all);
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AllProductCategories.class);
+                startActivity(intent);
             }
         });
 

@@ -19,7 +19,7 @@
             android:id="@+id/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:text="Category"
             android:textSize="40sp"
             android:textStyle="bold|normal"
@@ -29,8 +29,8 @@
 
         <ImageView
             android:id="@+id/id_category_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:src="@drawable/icon_upload"/>
@@ -53,6 +53,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Category"
+            android:textStyle="bold|normal"
+            android:textColor="@color/colorfont"
+            android:padding="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shapelogin" />
+
+        <Button
+            android:id="@+id/id_btn_show_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SHow all"
             android:textStyle="bold|normal"
             android:textColor="@color/colorfont"
             android:padding="15dp"

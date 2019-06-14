@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/id_product_fragment"
     tools:context=".ProductFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,7 +11,7 @@
         android:id="@+id/linearlayout_product_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:background="@drawable/shapebackgroundpage">
 
@@ -26,6 +27,14 @@
             android:fontFamily="Arial"
             />
 
+        <ImageView
+            android:id="@+id/id_category_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_upload"/>
+
         <Spinner
             android:id="@+id/spinner_categories"
             android:layout_width="match_parent"
@@ -33,7 +42,6 @@
             android:padding="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shapefield"
-            android:drawablePadding="10dp"
             android:hint="Product category name"
             android:textColor="@color/coloreditbox"
             android:textColorHint="@color/coloreditbox"
@@ -46,7 +54,6 @@
             android:padding="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shapefield"
-            android:drawablePadding="10dp"
             android:hint="Product category name"
             android:textColor="@color/coloreditbox"
             android:textColorHint="@color/coloreditbox"
@@ -59,7 +66,6 @@
             android:padding="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/shapefield"
-            android:drawablePadding="10dp"
             android:hint="Product name"
             android:textColor="@color/coloreditbox"
             android:textColorHint="@color/coloreditbox"
@@ -163,17 +169,35 @@
             </RelativeLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
         <Button
             android:id="@+id/id_btn_add"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Add Product"
             android:textStyle="bold|normal"
             android:textColor="@color/colorfont"
             android:padding="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shapelogin"
-            />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shapelogin" />
+
+        <Button
+            android:id="@+id/id_btn_show_all"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="SHow all"
+            android:textStyle="bold|normal"
+            android:textColor="@color/colorfont"
+            android:padding="15dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shapelogin" />
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

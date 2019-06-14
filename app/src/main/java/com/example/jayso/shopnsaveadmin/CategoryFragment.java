@@ -35,6 +35,7 @@ public class CategoryFragment extends Fragment {
     private static final int RESULT_LOAD_IMAGE = 1 ;
     Button btnAdd = null;
     ImageView btnImage = null;
+    Button btnShow = null;
 
 
     public CategoryFragment() {
@@ -59,6 +60,7 @@ public class CategoryFragment extends Fragment {
 
        btnAdd = (Button) v.findViewById(R.id.id_btn_add);
        btnImage = (ImageView) v.findViewById(R.id.id_category_image);
+       btnShow = (Button) v.findViewById(R.id.id_btn_show_all);
 
        // Upload Image
        btnImage.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +80,15 @@ public class CategoryFragment extends Fragment {
                Toast.makeText(getContext(), "Category added", Toast.LENGTH_SHORT).show();
            }
        });
+
+        // Show all
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AllCategories.class);
+                startActivity(intent);
+            }
+        });
        return v;
     }
 
