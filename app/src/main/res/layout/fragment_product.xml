@@ -1,203 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/id_product_fragment"
-    tools:context=".ProductFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:id="@+id/linearlayout_product_category"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:background="@drawable/shapebackgroundpage">
+        android:id="@+id/id_product_fragment"
+        tools:context=".ProductFragment">
 
-        <TextView
-            android:id="@+id/HeaderText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Product"
-            android:textSize="40sp"
-            android:textStyle="bold|normal"
-            android:textColor="@color/colorheadertoolbaar"
-            android:fontFamily="Arial"
-            />
-
-        <ImageView
-            android:id="@+id/id_category_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/icon_upload"/>
-
-        <Spinner
-            android:id="@+id/spinner_categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shapefield"
-            android:hint="Product category name"
-            android:textColor="@color/coloreditbox"
-            android:textColorHint="@color/coloreditbox"
-            android:textColorHighlight="@color/coloreditbox"/>
-
-        <Spinner
-            android:id="@+id/spinner_product_categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shapefield"
-            android:hint="Product category name"
-            android:textColor="@color/coloreditbox"
-            android:textColorHint="@color/coloreditbox"
-            android:textColorHighlight="@color/coloreditbox"/>
-
-        <EditText
-            android:id="@+id/edittext_product_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shapefield"
-            android:hint="Product name"
-            android:textColor="@color/coloreditbox"
-            android:textColorHint="@color/coloreditbox"
-            android:textColorHighlight="@color/coloreditbox"/>
-
+        <!-- TODO: Update blank fragment layout -->
         <LinearLayout
-            android:layout_marginTop="10dp"
+            android:id="@+id/linearlayout_product_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/shapebackgroundpage">
 
-            <RelativeLayout
-                android:layout_weight=".3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp">
-            <CheckBox
-                android:id="@+id/checkbox_pak_n_save"
+            <TextView
+                android:id="@+id/HeaderText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pak n' Save"
-                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:text="Product"
+                android:textSize="40sp"
+                android:textStyle="bold|normal"
+                android:textColor="@color/colorheadertoolbaar"
+                android:fontFamily="Arial"
+                />
+
+            <ImageView
+                android:id="@+id/id_product_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/icon_upload"/>
+
+            <Spinner
+                android:id="@+id/spinner_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapefield"
+                android:hint="Product category name"
                 android:textColor="@color/coloreditbox"
                 android:textColorHint="@color/coloreditbox"
                 android:textColorHighlight="@color/coloreditbox"/>
 
-                <EditText
-                    android:id="@+id/edittext_pak_n_save"
-                    android:visibility="invisible"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/shapefield"
-                    android:drawablePadding="10dp"
-                    android:hint="Price"
-                    android:textColor="@color/coloreditbox"
-                    android:textColorHint="@color/coloreditbox"
-                    android:textColorHighlight="@color/coloreditbox"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_weight=".3"
-                android:layout_width="0dp"
+            <Spinner
+                android:id="@+id/spinner_product_categories"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp">
-                <CheckBox
-                    android:id="@+id/checkbox_coundown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="10dp"
-                    android:text="Coundown"
-                    android:textSize="15sp"
-                    android:textColor="@color/coloreditbox"
-                    android:textColorHint="@color/coloreditbox"
-                    android:textColorHighlight="@color/coloreditbox"/>
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapefield"
+                android:hint="Product category name"
+                android:textColor="@color/coloreditbox"
+                android:textColorHint="@color/coloreditbox"
+                android:textColorHighlight="@color/coloreditbox"/>
 
-                <EditText
-                    android:id="@+id/edittext_coundown"
-                    android:visibility="invisible"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/shapefield"
-                    android:drawablePadding="10dp"
-                    android:hint="Price"
-                    android:textColor="@color/coloreditbox"
-                    android:textColorHint="@color/coloreditbox"
-                    android:textColorHighlight="@color/coloreditbox"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_weight=".3"
-                android:layout_width="0dp"
+            <EditText
+                android:id="@+id/edittext_product_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp">
-                <CheckBox
-                    android:id="@+id/checkbox_new_world"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="10dp"
-                    android:text="New world"
-                    android:textSize="15sp"
-                    android:textColor="@color/coloreditbox"
-                    android:textColorHint="@color/coloreditbox"
-                    android:textColorHighlight="@color/coloreditbox"/>
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shapefield"
+                android:hint="Product name"
+                android:textColor="@color/coloreditbox"
+                android:textColorHint="@color/coloreditbox"
+                android:textColorHighlight="@color/coloreditbox"/>
 
-                <EditText
-                    android:id="@+id/edittext_new_world"
-                    android:visibility="invisible"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_weight=".3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+                    <CheckBox
+                        android:id="@+id/checkbox_pak_n_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pak n' Save"
+                        android:textSize="15sp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+
+                    <EditText
+                        android:id="@+id/edittext_pak_n_save"
+                        android:visibility="invisible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight=".3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+                    <CheckBox
+                        android:id="@+id/checkbox_coundown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:text="Coundown"
+                        android:textSize="15sp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+
+                    <EditText
+                        android:id="@+id/edittext_coundown"
+                        android:visibility="invisible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight=".3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+                    <CheckBox
+                        android:id="@+id/checkbox_new_world"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:text="New world"
+                        android:textSize="15sp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+
+                    <EditText
+                        android:id="@+id/edittext_new_world"
+                        android:visibility="invisible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/id_btn_add"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Add Product"
+                    android:textStyle="bold|normal"
+                    android:textColor="@color/colorfont"
                     android:padding="15dp"
-                    android:layout_marginTop="30dp"
-                    android:background="@drawable/shapefield"
-                    android:drawablePadding="10dp"
-                    android:hint="Price"
-                    android:textColor="@color/coloreditbox"
-                    android:textColorHint="@color/coloreditbox"
-                    android:textColorHighlight="@color/coloreditbox"/>
-            </RelativeLayout>
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shapelogin" />
+
+                <Button
+                    android:id="@+id/id_btn_show_all"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="SHow all"
+                    android:textStyle="bold|normal"
+                    android:textColor="@color/colorfont"
+                    android:padding="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/shapelogin" />
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/id_btn_add"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Add Product"
-            android:textStyle="bold|normal"
-            android:textColor="@color/colorfont"
-            android:padding="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/shapelogin" />
-
-        <Button
-            android:id="@+id/id_btn_show_all"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="SHow all"
-            android:textStyle="bold|normal"
-            android:textColor="@color/colorfont"
-            android:padding="15dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/shapelogin" />
-        </LinearLayout>
-    </LinearLayout>
-
-</FrameLayout>
+    </FrameLayout>
+</ScrollView>

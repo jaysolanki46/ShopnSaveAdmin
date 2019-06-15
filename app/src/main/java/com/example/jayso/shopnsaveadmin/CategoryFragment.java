@@ -3,10 +3,14 @@ package com.example.jayso.shopnsaveadmin;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +21,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.ConnectionClass;
+import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.UploadImage;
 
+import org.apache.http.HttpConnection;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import java.io.ByteArrayOutputStream;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -36,7 +53,6 @@ public class CategoryFragment extends Fragment {
     Button btnAdd = null;
     ImageView btnImage = null;
     Button btnShow = null;
-
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -76,7 +92,10 @@ public class CategoryFragment extends Fragment {
            @Override
            public void onClick(View v) {
                EditText editTextCategoryName = (EditText) getActivity().findViewById(R.id.id_category_name);
-               addCategory(editTextCategoryName.getText().toString(), "");
+               Bitmap image = ((BitmapDrawable) btnImage.getDrawable()).getBitmap();
+               new UploadImage(image, "icon_"+ editTextCategoryName.getText().toString()).execute();
+
+               addCategory(editTextCategoryName.getText().toString(), "icon_"+ editTextCategoryName.getText().toString());
                Toast.makeText(getContext(), "Category added", Toast.LENGTH_SHORT).show();
            }
        });
@@ -115,4 +134,6 @@ public class CategoryFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
+
 }

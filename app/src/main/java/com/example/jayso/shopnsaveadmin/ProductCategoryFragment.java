@@ -3,7 +3,11 @@ package com.example.jayso.shopnsaveadmin;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,18 +16,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.Category;
 import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.ConnectionClass;
+import com.example.jayso.shopnsaveadmin.com.example.jayso.shopnsaveadmin.model.UploadImage;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -37,6 +44,8 @@ public class ProductCategoryFragment extends Fragment {
     String category_id = null;
     Button btnAdd = null;
     Button btnShow = null;
+    ImageView btnImage = null;
+    private static final int RESULT_LOAD_IMAGE = 1 ;
 
     public ProductCategoryFragment() {
         // Required empty public constructor
@@ -106,7 +115,10 @@ public class ProductCategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText editTextProductCategoryName = (EditText) getActivity().findViewById(R.id.id_product_category_name);
-                addProductCategory(category_id, editTextProductCategoryName.getText().toString(), "");
+                Bitmap image = ((BitmapDrawable) btnImage.getDrawable()).getBitmap();
+                new UploadImage(image, "icon_"+ editTextProductCategoryName.getText().toString()).execute();
+
+                addProductCategory(category_id, editTextProductCategoryName.getText().toString(), "icon_"+ editTextProductCategoryName.getText().toString());
                 Toast.makeText(getContext(), "Product category added", Toast.LENGTH_SHORT).show();
             }
         });
@@ -121,7 +133,26 @@ public class ProductCategoryFragment extends Fragment {
             }
         });
 
+        btnImage = (ImageView) view.findViewById(R.id.id_product_category_image);
+        btnImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+            }
+        });
         return view;
+    }
+
+    // Show image on ImageView
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri selectedImage = data.getData();
+            btnImage.setImageURI(selectedImage);
+
+        }
     }
 
     // Add to database
