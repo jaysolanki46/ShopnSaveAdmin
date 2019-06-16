@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShopnSaveAdmin</string>
+    <string name="app_name">Shop N Save - ADMIN</string>
     <string name="nav_home">Home</string>
     <string name="nav_category">Category</string>
     <string name="nav_prod_cat">Product Category</string>

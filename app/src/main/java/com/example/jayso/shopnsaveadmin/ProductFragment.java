@@ -170,7 +170,7 @@ public class ProductFragment extends Fragment {
                 });
 
         CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
-        CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
+        final CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
         CheckBox checkBox_newworld = (CheckBox) view.findViewById(R.id.checkbox_new_world);
 
         final EditText editText_paknsave = (EditText) view.findViewById(R.id.edittext_pak_n_save);
@@ -181,10 +181,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    tbl_prod_store_counter += 1;
                     editText_paknsave.setVisibility(view.VISIBLE);
                 } else {
-                    tbl_prod_store_counter -= 1;
                     editText_paknsave.setVisibility(view.INVISIBLE);
                 }
             }
@@ -193,10 +191,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    tbl_prod_store_counter += 1;
                     editText_coundown.setVisibility(view.VISIBLE);
                 } else {
-                    tbl_prod_store_counter -= 1;
                     editText_coundown.setVisibility(view.INVISIBLE);
                 }
             }
@@ -205,10 +201,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    tbl_prod_store_counter += 1;
                     editText_newworld.setVisibility(view.VISIBLE);
                 } else {
-                    tbl_prod_store_counter -= 1;
                     editText_newworld.setVisibility(view.INVISIBLE);
                 }
             }
@@ -225,9 +219,28 @@ public class ProductFragment extends Fragment {
                 EditText new_world_price= (EditText) getActivity().findViewById(R.id.edittext_new_world);
 
                 tbl_prod_name = prod_name.getText().toString();
-                tbl_pak_n_save_price = pak_n_save_price.getText().toString();
-                tbl_coundown_price = coundown_price.getText().toString();
-                tbl_new_world_price = new_world_price.getText().toString();
+
+                if(!pak_n_save_price.getText().toString().isEmpty()) {
+                    tbl_prod_store_counter += 1;
+                    tbl_pak_n_save_price = pak_n_save_price.getText().toString();
+                } else {
+                    tbl_prod_store_counter -= 1;
+                    tbl_pak_n_save_price = "N/A";
+                }
+                if(!coundown_price.getText().toString().isEmpty()) {
+                    tbl_prod_store_counter += 1;
+                    tbl_coundown_price = coundown_price.getText().toString();
+                } else {
+                    tbl_prod_store_counter -= 1;
+                    tbl_coundown_price = "N/A";
+                }
+                if(!new_world_price.getText().toString().isEmpty()) {
+                    tbl_prod_store_counter += 1;
+                    tbl_new_world_price = new_world_price.getText().toString();
+                } else {
+                    tbl_prod_store_counter -= 1;
+                    tbl_new_world_price = "N/A";
+                }
 
                 Bitmap image = ((BitmapDrawable) btnImage.getDrawable()).getBitmap();
                 tbl_prod_image = "icon_"+ tbl_prod_name;

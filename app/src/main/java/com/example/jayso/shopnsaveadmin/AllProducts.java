@@ -80,32 +80,6 @@ public class AllProducts extends AppCompatActivity {
         try {
             result = stmt.executeQuery("select prod.*, price.* from Products prod LEFT JOIN Product_prices price ON prod.prod_id = price.prod_id");
             while(result.next()){
-                String price_paknsave = "";
-                String price_coundown = "";
-                String price_newworld = "";
-
-                String result_price_paknsave = result.getString("pak_n_save_price");
-                String result_price_coundown = result.getString("coundown_price");
-                String result_price_newworld = result.getString("new_world_price");
-
-                if(result_price_paknsave != null) {
-                    price_paknsave = result.getString("pak_n_save_price");
-                } else {
-                    price_paknsave = "N/A";
-                }
-
-                if(result_price_coundown != null) {
-                    price_coundown = result.getString("coundown_price");
-                } else {
-                    price_paknsave = "N/A";
-                }
-
-                if(result_price_newworld != null) {
-                    price_newworld = result.getString("new_world_price");
-                } else {
-                    price_paknsave = "N/A";
-                }
-
                 products.add(new Product(
                         result.getString("prod_id"),
                         result.getString("cat_id"),
@@ -113,9 +87,9 @@ public class AllProducts extends AppCompatActivity {
                         result.getString("prod_name"),
                         result.getString("prod_store_counter"),
                         0,
-                        price_paknsave,
-                        price_coundown,
-                        price_newworld));
+                        result.getString("pak_n_save_price"),
+                        result.getString("coundown_price"),
+                        result.getString("new_world_price")));
             }
             conn.connectionClose();
 
