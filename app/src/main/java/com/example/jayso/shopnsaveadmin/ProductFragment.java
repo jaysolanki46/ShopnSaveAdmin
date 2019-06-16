@@ -181,8 +181,10 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_paknsave.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_paknsave.setVisibility(view.INVISIBLE);
                 }
             }
@@ -191,8 +193,10 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_coundown.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_coundown.setVisibility(view.INVISIBLE);
                 }
             }
@@ -201,8 +205,10 @@ public class ProductFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    tbl_prod_store_counter += 1;
                     editText_newworld.setVisibility(view.VISIBLE);
                 } else {
+                    tbl_prod_store_counter -= 1;
                     editText_newworld.setVisibility(view.INVISIBLE);
                 }
             }
@@ -221,24 +227,18 @@ public class ProductFragment extends Fragment {
                 tbl_prod_name = prod_name.getText().toString();
 
                 if(!pak_n_save_price.getText().toString().isEmpty()) {
-                    tbl_prod_store_counter += 1;
                     tbl_pak_n_save_price = pak_n_save_price.getText().toString();
                 } else {
-                    tbl_prod_store_counter -= 1;
                     tbl_pak_n_save_price = "N/A";
                 }
                 if(!coundown_price.getText().toString().isEmpty()) {
-                    tbl_prod_store_counter += 1;
                     tbl_coundown_price = coundown_price.getText().toString();
                 } else {
-                    tbl_prod_store_counter -= 1;
                     tbl_coundown_price = "N/A";
                 }
                 if(!new_world_price.getText().toString().isEmpty()) {
-                    tbl_prod_store_counter += 1;
                     tbl_new_world_price = new_world_price.getText().toString();
                 } else {
-                    tbl_prod_store_counter -= 1;
                     tbl_new_world_price = "N/A";
                 }
 
