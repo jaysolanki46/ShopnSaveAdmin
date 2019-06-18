@@ -21,6 +21,7 @@
         <activity android:name="com.example.jayso.shopnsaveadmin.AllCategories"></activity>
         <activity android:name="com.example.jayso.shopnsaveadmin.AllProductCategories"></activity>
         <activity android:name="com.example.jayso.shopnsaveadmin.AllProducts"></activity>
+        <activity android:name="com.example.jayso.shopnsaveadmin.UpdateProductActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>

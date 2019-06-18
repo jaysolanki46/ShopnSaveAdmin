@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shapebackgroundpage"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HeaderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="Arial"
+                android:text="Product"
+                android:textColor="@color/colorheadertoolbaar"
+                android:textSize="40sp"
+                android:textStyle="bold|normal" />
+
+            <Spinner
+                android:id="@+id/spinner_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shapefield"
+                android:hint="Product category name"
+                android:padding="15dp"
+                android:textColor="@color/coloreditbox"
+                android:textColorHighlight="@color/coloreditbox"
+                android:textColorHint="@color/coloreditbox" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight=".3">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_pak_n_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pak n' Save"
+                        android:buttonTint="@color/coloreditbox"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_pak_n_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:padding="15dp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight=".3">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_coundown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:text="Coundown"
+                        android:buttonTint="@color/coloreditbox"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_coundown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:padding="15dp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight=".3">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_new_world"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:text="New world"
+                        android:buttonTint="@color/coloreditbox"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/edittext_new_world"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/shapefield"
+                        android:drawablePadding="10dp"
+                        android:hint="Price"
+                        android:padding="15dp"
+                        android:textColor="@color/coloreditbox"
+                        android:textColorHighlight="@color/coloreditbox"
+                        android:textColorHint="@color/coloreditbox"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/id_btn_update"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight=".5"
+                    android:background="@drawable/shapelogin"
+                    android:padding="15dp"
+                    android:text="Update Product"
+                    android:textColor="@color/colorfont"
+                    android:textStyle="bold|normal" />
+
+
+            </LinearLayout>
+</LinearLayout>

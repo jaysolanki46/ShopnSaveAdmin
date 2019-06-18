@@ -97,6 +97,11 @@ public class Product {
         public void setProduct_new_world_price(String product_new_world_price) {
             this.product_new_world_price = product_new_world_price;
         }
+
+    @Override
+    public String toString() {
+        return product_name;
     }
+}
 
 

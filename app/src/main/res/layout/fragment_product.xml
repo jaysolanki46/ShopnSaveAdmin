@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:background="@drawable/shapebackgroundpage">
 
@@ -91,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pak n' Save"
                         android:textSize="15sp"
+                        android:buttonTint="@color/coloreditbox"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
@@ -122,6 +124,7 @@
                         android:drawablePadding="10dp"
                         android:text="Coundown"
                         android:textSize="15sp"
+                        android:buttonTint="@color/coloreditbox"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
@@ -153,6 +156,7 @@
                         android:drawablePadding="10dp"
                         android:text="New world"
                         android:textSize="15sp"
+                        android:buttonTint="@color/coloreditbox"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
@@ -176,32 +180,46 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/id_btn_add"
-                    android:layout_width="150dp"
+                    android:layout_weight=".5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Add Product"
                     android:textStyle="bold|normal"
                     android:textColor="@color/colorfont"
                     android:padding="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/shapelogin" />
+                    android:background="@drawable/shapelogin"
+                    android:layout_marginRight="5dp"/>
 
                 <Button
+                    android:layout_marginLeft="5dp"
                     android:id="@+id/id_btn_show_all"
-                    android:layout_width="150dp"
+                    android:layout_weight=".5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="SHow all"
                     android:textStyle="bold|normal"
                     android:textColor="@color/colorfont"
                     android:padding="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
                     android:background="@drawable/shapelogin" />
             </LinearLayout>
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:id="@+id/id_btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Product"
+                android:textStyle="bold|normal"
+                android:textColor="@color/colorfont"
+                android:padding="15dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/shapelogin" />
         </LinearLayout>
 
     </FrameLayout>

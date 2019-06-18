@@ -46,6 +46,7 @@ public class ProductFragment extends Fragment {
     List<Category> categories = null;
     List<ProductCategory> productCategories = null;
     Button btnShow = null;
+    Button btnUpdate = null;
     ImageView btnImage = null;
     private static final int RESULT_LOAD_IMAGE = 1 ;
 
@@ -170,7 +171,7 @@ public class ProductFragment extends Fragment {
                 });
 
         CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
-        final CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
+        CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
         CheckBox checkBox_newworld = (CheckBox) view.findViewById(R.id.checkbox_new_world);
 
         final EditText editText_paknsave = (EditText) view.findViewById(R.id.edittext_pak_n_save);
@@ -268,6 +269,15 @@ public class ProductFragment extends Fragment {
             public void onClick(View v) {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+            }
+        });
+
+        btnUpdate = (Button) view.findViewById(R.id.id_btn_update);
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), UpdateProductActivity.class);
+                startActivity(intent);
             }
         });
 
