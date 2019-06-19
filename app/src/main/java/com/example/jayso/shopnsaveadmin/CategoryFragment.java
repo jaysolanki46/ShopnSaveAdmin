@@ -97,6 +97,8 @@ public class CategoryFragment extends Fragment {
 
                addCategory(editTextCategoryName.getText().toString(), "icon_"+ editTextCategoryName.getText().toString());
                Toast.makeText(getContext(), "Category added", Toast.LENGTH_SHORT).show();
+               editTextCategoryName.setText(null);
+               btnImage.setImageResource(R.drawable.icon_upload);
            }
        });
 

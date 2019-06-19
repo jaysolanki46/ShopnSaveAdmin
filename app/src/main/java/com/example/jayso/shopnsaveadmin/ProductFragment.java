@@ -170,9 +170,9 @@ public class ProductFragment extends Fragment {
                     }
                 });
 
-        CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
-        CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
-        CheckBox checkBox_newworld = (CheckBox) view.findViewById(R.id.checkbox_new_world);
+        final CheckBox checkBox_paknsave = (CheckBox) view.findViewById(R.id.checkbox_pak_n_save);
+        final CheckBox checkBox_coundown = (CheckBox) view.findViewById(R.id.checkbox_coundown);
+        final CheckBox checkBox_newworld = (CheckBox) view.findViewById(R.id.checkbox_new_world);
 
         final EditText editText_paknsave = (EditText) view.findViewById(R.id.edittext_pak_n_save);
         final EditText editText_coundown = (EditText) view.findViewById(R.id.edittext_coundown);
@@ -187,6 +187,7 @@ public class ProductFragment extends Fragment {
                 } else {
                     tbl_prod_store_counter -= 1;
                     editText_paknsave.setVisibility(view.INVISIBLE);
+                    editText_paknsave.setText(null);
                 }
             }
         });
@@ -199,6 +200,7 @@ public class ProductFragment extends Fragment {
                 } else {
                     tbl_prod_store_counter -= 1;
                     editText_coundown.setVisibility(view.INVISIBLE);
+                    editText_coundown.setText(null);
                 }
             }
         });
@@ -211,6 +213,7 @@ public class ProductFragment extends Fragment {
                 } else {
                     tbl_prod_store_counter -= 1;
                     editText_newworld.setVisibility(view.INVISIBLE);
+                    editText_newworld.setText(null);
                 }
             }
         });
@@ -224,8 +227,8 @@ public class ProductFragment extends Fragment {
                 EditText pak_n_save_price = (EditText) getActivity().findViewById(R.id.edittext_pak_n_save);
                 EditText coundown_price= (EditText) getActivity().findViewById(R.id.edittext_coundown);
                 EditText new_world_price= (EditText) getActivity().findViewById(R.id.edittext_new_world);
-
-                tbl_prod_name = prod_name.getText().toString();
+                EditText editText_product_name = (EditText) getActivity().findViewById(R.id.edittext_product_name);
+                tbl_prod_name = editText_product_name.getText().toString();
 
                 if(!pak_n_save_price.getText().toString().isEmpty()) {
                     tbl_pak_n_save_price = pak_n_save_price.getText().toString();
@@ -250,6 +253,16 @@ public class ProductFragment extends Fragment {
                 addProduct(tbl_category_id, tbl_prod_cat_id, tbl_prod_name, tbl_prod_store_counter, tbl_prod_image);
                 addProductPrice(tbl_pak_n_save_price, tbl_coundown_price, tbl_new_world_price);
                 Toast.makeText(getContext(), "Product added", Toast.LENGTH_SHORT).show();
+
+                // Reset fields
+                editText_product_name.setText(null);
+                checkBox_paknsave.setChecked(false);
+                checkBox_coundown.setChecked(false);
+                checkBox_newworld.setChecked(false);
+                editText_paknsave.setText(null);
+                editText_coundown.setText(null);
+                editText_newworld.setText(null);
+                btnImage.setImageResource(R.drawable.icon_upload);
             }
         });
 

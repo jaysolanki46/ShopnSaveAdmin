@@ -120,6 +120,8 @@ public class ProductCategoryFragment extends Fragment {
 
                 addProductCategory(category_id, editTextProductCategoryName.getText().toString(), "icon_"+ editTextProductCategoryName.getText().toString());
                 Toast.makeText(getContext(), "Product category added", Toast.LENGTH_SHORT).show();
+                editTextProductCategoryName.setText(null);
+                btnImage.setImageResource(R.drawable.icon_upload);
             }
         });
 
