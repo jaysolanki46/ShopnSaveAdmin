@@ -19,21 +19,13 @@
             android:id="@+id/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             android:text="Category"
             android:textSize="40sp"
             android:textStyle="bold|normal"
             android:textColor="@color/colorheadertoolbaar"
             android:fontFamily="Arial"
             />
-
-        <ImageView
-            android:id="@+id/id_category_image"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/icon_upload"/>
 
         <EditText
             android:id="@+id/id_category_name"

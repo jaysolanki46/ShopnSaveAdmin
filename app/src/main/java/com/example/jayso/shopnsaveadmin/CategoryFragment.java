@@ -51,7 +51,6 @@ public class CategoryFragment extends Fragment {
 
     private static final int RESULT_LOAD_IMAGE = 1 ;
     Button btnAdd = null;
-    ImageView btnImage = null;
     Button btnShow = null;
 
     public CategoryFragment() {
@@ -75,30 +74,17 @@ public class CategoryFragment extends Fragment {
        sessionCheck();
 
        btnAdd = (Button) v.findViewById(R.id.id_btn_add);
-       btnImage = (ImageView) v.findViewById(R.id.id_category_image);
        btnShow = (Button) v.findViewById(R.id.id_btn_show_all);
-
-       // Upload Image
-       btnImage.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-               startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-           }
-       });
 
        // Add btn
        btnAdd.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                EditText editTextCategoryName = (EditText) getActivity().findViewById(R.id.id_category_name);
-               Bitmap image = ((BitmapDrawable) btnImage.getDrawable()).getBitmap();
-               new UploadImage(image, "icon_"+ editTextCategoryName.getText().toString()).execute();
 
                addCategory(editTextCategoryName.getText().toString(), "icon_"+ editTextCategoryName.getText().toString());
                Toast.makeText(getContext(), "Category added", Toast.LENGTH_SHORT).show();
                editTextCategoryName.setText(null);
-               btnImage.setImageResource(R.drawable.icon_upload);
            }
        });
 
@@ -111,17 +97,6 @@ public class CategoryFragment extends Fragment {
             }
         });
        return v;
-    }
-
-    // Show image on ImageView
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
-            Uri selectedImage = data.getData();
-            btnImage.setImageURI(selectedImage);
-
-        }
     }
 
     // Add to database
