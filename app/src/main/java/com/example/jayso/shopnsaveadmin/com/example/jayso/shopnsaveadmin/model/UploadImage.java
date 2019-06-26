@@ -16,6 +16,8 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
 import java.io.ByteArrayOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class UploadImage extends AsyncTask<Void, Void, Void> {
@@ -40,7 +42,8 @@ public class UploadImage extends AsyncTask<Void, Void, Void> {
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        String encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+        String encodedImage = null;
+        encodedImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
 
         ArrayList<NameValuePair> dataSend = new ArrayList<>();
         dataSend.add(new BasicNameValuePair("image", encodedImage));
@@ -51,7 +54,7 @@ public class UploadImage extends AsyncTask<Void, Void, Void> {
         HttpPost post = new HttpPost(SERVER_ADDRESS + "SavePicture.php");
 
         try{
-            post.setEntity(new UrlEncodedFormEntity(dataSend));
+            post.setEntity(new UrlEncodedFormEntity(dataSend, "UTF-8"));
             client.execute(post);
         }catch (Exception e) {
             e.printStackTrace();

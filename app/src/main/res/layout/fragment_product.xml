@@ -107,6 +107,7 @@
                         android:background="@drawable/shapefield"
                         android:drawablePadding="10dp"
                         android:hint="Price"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
@@ -139,6 +140,7 @@
                         android:background="@drawable/shapefield"
                         android:drawablePadding="10dp"
                         android:hint="Price"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
@@ -171,6 +173,7 @@
                         android:background="@drawable/shapefield"
                         android:drawablePadding="10dp"
                         android:hint="Price"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/coloreditbox"
                         android:textColorHint="@color/coloreditbox"
                         android:textColorHighlight="@color/coloreditbox"/>
