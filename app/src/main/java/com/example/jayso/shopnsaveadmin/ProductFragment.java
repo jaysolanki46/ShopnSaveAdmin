@@ -58,6 +58,7 @@ public class ProductFragment extends Fragment {
     String tbl_pak_n_save_price = null;
     String tbl_coundown_price = null;
     String tbl_new_world_price = null;
+    View view;
 
     public void sessionCheck() {
         SharedPreferences prefs = getContext().getSharedPreferences("preferences-details", MODE_PRIVATE);
@@ -125,7 +126,7 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         sessionCheck();
-        final View view = inflater.inflate(R.layout.fragment_product, container, false);
+        view = inflater.inflate(R.layout.fragment_product, container, false);
 
         // Listing categories
         categories = getCategories();
@@ -223,7 +224,6 @@ public class ProductFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                EditText prod_name= (EditText) getActivity().findViewById(R.id.edittext_product_name);
                 EditText pak_n_save_price = (EditText) getActivity().findViewById(R.id.edittext_pak_n_save);
                 EditText coundown_price= (EditText) getActivity().findViewById(R.id.edittext_coundown);
                 EditText new_world_price= (EditText) getActivity().findViewById(R.id.edittext_new_world);
@@ -255,6 +255,15 @@ public class ProductFragment extends Fragment {
                 Toast.makeText(getContext(), "Product added", Toast.LENGTH_SHORT).show();
 
                 // Reset fields
+                tbl_prod_store_counter = 0;
+                tbl_category_id = null;
+                tbl_prod_cat_id = null;
+                tbl_prod_name = null;
+                tbl_prod_store_counter = 0;
+                tbl_prod_image = null;
+                tbl_pak_n_save_price = null;
+                tbl_coundown_price = null;
+                tbl_new_world_price = null;
                 editText_product_name.setText(null);
                 checkBox_paknsave.setChecked(false);
                 checkBox_coundown.setChecked(false);
